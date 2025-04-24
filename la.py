@@ -32,4 +32,7 @@ text = st.text_input("Enter a word or phrase:")
 
 if st.button("Translate"):
     text_lower = text.lower()
-    if text_lower
+    if text_lower in translations and target_lang in translations[text_lower]:
+        st.success(f"Translation: {translations[text_lower][target_lang]}")
+    else:
+        st.error("Translation not available for this phrase")
